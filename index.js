@@ -44,6 +44,10 @@ app.use("/api/v1/contact", MessageRoutes);
 //  res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
 // });
 
+app.get("/", (req, res)=>{
+  res.send("Home");
+})
+
 //Port
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
