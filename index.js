@@ -8,7 +8,7 @@ import categoryRoutes from "./routes/categoryRoutes.js";
 import ProductRoutes from "./routes/ProductRoute.js";
 import MessageRoutes from "./routes/MessageRoute.js";
 import path from "path";
-import { fileURLToPath } from "url";
+//import { fileURLToPath } from "url";
 // config env
 dotenv.config();
 
@@ -16,8 +16,8 @@ dotenv.config();
 connectDB();
 
 //esmodule fix
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+//const __filename = fileURLToPath(import.meta.url);
+//const __dirname = path.dirname(__filename);
 
 // rest object
 const app = express();
@@ -27,7 +27,7 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 
-app.use(express.static(path.join(__dirname, "../frontend/build")));
+//app.use(express.static(path.join(__dirname, "../Frontend/build")));
 
 //Routes
 // Authentication
@@ -40,9 +40,9 @@ app.use("/api/v1/product", ProductRoutes);
 
 app.use("/api/v1/contact", MessageRoutes);
 
-app.use("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
-});
+// app.use("*", function (req, res) {
+//  res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
+// });
 
 //Port
 const PORT = process.env.PORT || 8080;
